@@ -78,13 +78,16 @@ export default function App() {
         <img className="mx-auto h-auto! w-full max-w-[549px] drop-shadow-2xl" src="/images/yakissoba-makari-prato.png" loading="lazy" width="549" height="290" alt="Yakissoba preparado com macarrão Makari, legumes e camarões" />
         </div>
       </section>
-      <section id="clientes" className="section-space clients" aria-labelledby="clientes-title">
-        <h2 id="clientes-title" className="text-4xl sm:text-5xl">Nossos principais clientes</h2>
-        <ul className="mt-7 grid max-w-sm list-none grid-cols-2 gap-3 p-0">
-          {['KarneKeijo', 'Marítimos'].map(name => (
-            <li key={name} className="border border-white/40 bg-white/10 px-3 py-4 text-center font-semibold">{name}</li>
-          ))}
-        </ul>
+      <section id="clientes" className="clients" aria-labelledby="clientes-title">
+        <img className="clients-photo" src="/images/clientes-caminhao-makari.png" width="1600" height="1200" loading="lazy" alt="Caminhão da KarneKeijo com a marca e as embalagens do macarrão Makari na lateral" />
+        <div className="clients-panel">
+          <h2 id="clientes-title" className="text-4xl sm:text-5xl">Nossos principais clientes</h2>
+          <ul className="mt-7 grid max-w-sm list-none grid-cols-2 gap-3 p-0">
+            {['KarneKeijo', 'Marítimos'].map(name => (
+              <li key={name} className="border border-stone-300 bg-white px-3 py-4 text-center font-semibold">{name}</li>
+            ))}
+          </ul>
+        </div>
       </section>
       <section className="find-us section-space"><div id="sobre" className="reveal"><p className="eyebrow">SOBRE A MAKARI</p><h2>Macarrão para yakissoba <em>feito no Recife.</em></h2><p>Fabricamos macarrão para yakissoba em embalagens de 500 g e 1 kg e fornecemos para restaurantes, supermercados e outros estabelecimentos.</p><a className="text-link dark" href="#massas">Ver embalagens</a></div><div id="onde-encontrar" className="where reveal"><p className="eyebrow">ONDE ENCONTRAR</p><h2>Mais perto<br/><em>da sua mesa.</em></h2><p>Quer levar Makari para casa? Consulte os pontos de venda e saiba onde comprar o macarrão para yakissoba Makari.</p>{business.retailers.length ? business.retailers.map(retailer => <a className="text-link dark" key={retailer.url} href={retailer.url}>{retailer.name}</a>) : <a className="text-link dark" href={whatsappLink('retailers')}>Consultar pontos de venda</a>}<div className="where-note"><span aria-hidden="true">✳</span><p>Da escolha da massa<br/>ao último garfo.</p></div></div></section>
     </main>
