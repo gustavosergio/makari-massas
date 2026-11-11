@@ -77,6 +77,15 @@ export default function App() {
           ))}
         </ul>
       </section>
+      <section className="section-space border-b border-stone-200" aria-labelledby="clientes-title">
+        <h2 id="clientes-title" className="text-4xl sm:text-5xl">Quem compra da Makari</h2>
+        <p className="mt-3 text-sm text-stone-600">Nomes provisórios para apresentação.</p>
+        <ul className="mt-7 grid list-none grid-cols-2 gap-4 p-0 md:grid-cols-4">
+          {['Loja 1', 'Loja 2', 'Loja 3', 'Loja 4'].map(name => (
+            <li key={name} className="border border-stone-200 bg-white px-4 py-6 text-center font-semibold">{name}</li>
+          ))}
+        </ul>
+      </section>
       <section className="find-us section-space"><div id="sobre" className="reveal"><p className="eyebrow">SOBRE A MAKARI</p><h2>Uma fábrica de massas <em>do Recife.</em></h2><p>O macarrão para yakissoba é a nossa especialidade. Na fábrica da Makari, também produzimos linguini e talharim para abastecer restaurantes, supermercados e outros estabelecimentos.</p><a className="text-link dark" href="#massas">Conhecer nossas massas</a></div><div id="onde-encontrar" className="where reveal"><p className="eyebrow">ONDE ENCONTRAR</p><h2>Mais perto<br/><em>da sua mesa.</em></h2><p>Quer levar Makari para casa? Consulte os pontos de venda e saiba onde encontrar nossas massas.</p>{business.retailers.length ? business.retailers.map(retailer => <a className="text-link dark" key={retailer.url} href={retailer.url}>{retailer.name}</a>) : <a className="text-link dark" href={whatsappLink('retailers')}>Consultar pontos de venda</a>}<div className="where-note"><span aria-hidden="true">✳</span><p>Da escolha da massa<br/>ao último garfo.</p></div></div></section>
     </main>
     <footer className="footer"><div className="footer-top"><a href="#inicio" aria-label="Makari — voltar ao início"><Brand/></a><p>O seu tempero.<br/>A nossa massa.</p><div><a href={business.instagram}>Instagram</a><a href={business.whatsapp}>Contato comercial</a>{business.mapsUrl && business.address && <a href={business.mapsUrl}>Google Maps</a>}<span>{business.phoneLabel}</span></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Makari · Recife, Pernambuco</span><span>Imagens de pratos ilustrativas.</span><a href="#inicio">Voltar ao topo</a></div></footer>
