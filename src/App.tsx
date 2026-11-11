@@ -44,7 +44,7 @@ export default function App() {
           <p className="hero-description intro-3">Fabricamos macarrão para yakissoba em Recife e entregamos para estabelecimentos em toda a Região Metropolitana do Recife e em Caruaru.</p>
           <div className="hero-actions intro-3"><a className="button button-cream" href={whatsappLink('supply')}>Solicitar cotação pelo WhatsApp</a><a className="text-link" href="#massas">Ver embalagens</a></div>
         </div>
-        <div className="hero-bottom flex justify-between"><span>MACARRÃO PARA YAKISSOBA · RECIFE, PE</span><span>Sugestão de preparo</span><a href="#massas" aria-label="Ver embalagens de macarrão para yakissoba">DESLIZE PARA DESCOBRIR</a></div>
+        <div className="hero-bottom flex justify-between"><span>MACARRÃO PARA YAKISSOBA · RECIFE, PE</span><a href="#massas" aria-label="Ver embalagens de macarrão para yakissoba">DESLIZE PARA DESCOBRIR</a></div>
       </section>
       <div className="ribbon makari-ribbon">
         <span>Fabricamos em Recife</span>
