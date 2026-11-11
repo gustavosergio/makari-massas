@@ -37,14 +37,14 @@ export default function App() {
     </header>
     <main id="conteudo">
       <section id="inicio" className="hero">
-        <div className="hero-image"><img src="/images/yakissoba.webp" width="1536" height="1024" fetchPriority="high" alt="Prato ilustrativo de yakissoba com massa dourada, legumes e carne" /></div>
+        <div className="hero-image"><img src="/images/yakissoba-servido.jpg" width="1080" height="1350" fetchPriority="high" alt="Pegador levantando o macarrão de um prato de yakissoba" /></div>
         <div className="hero-content">
           <p className="eyebrow intro-1"><span className="tiny-sun">✳</span> FÁBRICA E DISTRIBUIDORA EM RECIFE</p>
           <h1 className="intro-2">Macarrão para yakissoba <em>para o seu negócio.</em></h1>
           <p className="hero-description intro-3">Fabricamos macarrão para yakissoba em Recife e entregamos para estabelecimentos em toda a Região Metropolitana do Recife e em Caruaru.</p>
           <div className="hero-actions intro-3"><a className="button button-cream" href={whatsappLink('supply')}>Solicitar cotação pelo WhatsApp</a><a className="text-link" href="#massas">Ver embalagens</a></div>
         </div>
-        <div className="hero-bottom flex justify-between"><span>MACARRÃO PARA YAKISSOBA · RECIFE, PE</span><span>Prato ilustrativo</span><a href="#massas" aria-label="Ver embalagens de macarrão para yakissoba">DESLIZE PARA DESCOBRIR</a></div>
+        <div className="hero-bottom flex justify-between"><span>MACARRÃO PARA YAKISSOBA · RECIFE, PE</span><span>Sugestão de preparo</span><a href="#massas" aria-label="Ver embalagens de macarrão para yakissoba">DESLIZE PARA DESCOBRIR</a></div>
       </section>
       <div className="ribbon makari-ribbon">
         <span>Fabricamos em Recife</span>
