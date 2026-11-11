@@ -1,5 +1,27 @@
 @import "tailwindcss";
 @theme { --color-makari: #b82025; --color-cream: #f7f2e8; }
+.makari-symbol {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: 50%;
+  vertical-align: middle;
+  background: url('/images/logo-makari.png') center top -2px / 55px 55px no-repeat;
+}
+.product-zoom {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(92vw, 680px);
+  max-height: 90dvh;
+  padding: 12px;
+  background: white;
+}
+.product-zoom::backdrop { background: #1b1211cf; }
+.product-zoom form { display: flex; justify-content: flex-end; }
+.product-zoom button { cursor: pointer; padding: 6px 12px; }
+.product-zoom img { height: auto; max-height: 78dvh; object-fit: contain; }
 .footer-top > div .footer-contact {
   display: flex;
   justify-content: flex-start;
