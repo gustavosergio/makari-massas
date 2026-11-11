@@ -47,18 +47,30 @@ export default function App() {
         <div className="hero-bottom flex justify-between"><span>MASSAS ALIMENTÍCIAS · RECIFE, PE</span><span>Prato ilustrativo</span><a href="#massas" aria-label="Rolar para nossas massas">DESLIZE PARA DESCOBRIR</a></div>
       </section>
       <div className="ribbon" aria-hidden="true"><span>Da nossa fábrica</span><i>✳</i><span>Para a sua cozinha</span><i>✳</i><span>Com sotaque recifense</span><i>✳</i></div>
-      <section id="massas" className="products section-space">
-        <div className="section-heading reveal"><p className="eyebrow">NOSSAS MASSAS</p><div className="heading-row"><h2>Uma massa.<br/><em>Tantas possibilidades.</em></h2><p>Do encontro com os legumes ao molho da casa.<br/>Encontre a Makari na sua próxima receita.</p></div></div>
-        <article className="signature reveal">
-          <div className="signature-photo"><img src="/images/yakissoba.webp" loading="lazy" width="1536" height="1024" alt="Sugestão de preparo: yakissoba com legumes e carne"/><span className="photo-caption">SUGESTÃO DE PREPARO · IMAGEM ILUSTRATIVA</span><span className="specialty-stamp" aria-hidden="true">NOSSA<br/><b>especialidade</b><br/>MAKARI ✳</span></div>
-          <div className="signature-photo bg-white"><img className="object-contain!" src="/images/makari-yakissoba-500g.png" loading="lazy" width="640" height="640" alt="Embalagem Makari de macarrão para yakissoba de 500 g" /></div>
-        </article>
-        <div className="other-products grid md:grid-cols-2 gap-8">
-          <article className="product reveal"><div className="product-photo"><img src="/images/linguini.webp" loading="lazy" width="1536" height="1024" alt="Prato ilustrativo de linguini com tomates e manjericão"/><span className="photo-caption">SUGESTÃO DE PREPARO · IMAGEM ILUSTRATIVA</span></div><div className="product-title"><h3>Linguini</h3><span>Nº 02</span></div><p>Para o molho que você ama e as receitas que ainda vai descobrir.</p><a className="text-link dark" href={whatsappLink('product')}>Conhecer a massa</a></article>
-          <article className="product reveal"><div className="product-photo"><img src="/images/talharim.webp" loading="lazy" width="1536" height="1024" alt="Prato ilustrativo de talharim com molho de tomate e queijo"/><span className="photo-caption">SUGESTÃO DE PREPARO · IMAGEM ILUSTRATIVA</span></div><div className="product-title"><h3>Talharim</h3><span>Nº 03</span></div><p>Um convite para caprichar no molho e reunir todo mundo à mesa.</p><a className="text-link dark" href={whatsappLink('product')}>Conhecer a massa</a></article>
-        </div>
+      <section id="massas" className="section-space bg-white" aria-labelledby="massas-title">
+        <h2 id="massas-title" className="mb-8 border-b border-stone-200 pb-5 text-4xl sm:text-5xl">Nossas massas</h2>
+        <ul className="grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { name: 'Macarrão para yakissoba', weight: '500 g', photo: '/images/makari-yakissoba-500g.png' },
+            { name: 'Macarrão para yakissoba', weight: '1 kg' },
+            { name: 'Linguini' },
+            { name: 'Talharim' },
+          ].map(({ name, weight, photo }) => (
+            <li key={weight ? `${name}-${weight}` : name} className="flex flex-col border border-stone-200 bg-white p-4">
+              {photo && (
+                <img className="mb-4 h-52! w-full object-contain!" src={photo} loading="lazy" width="640" height="640" alt="Embalagem Makari de macarrão para yakissoba de 500 g" />
+              )}
+              <p className="text-sm font-semibold text-stone-600">Makari</p>
+              <h3 className="mt-1 mb-4 font-sans! text-lg font-bold! tracking-normal!">{name}{weight && ` · ${weight}`}</h3>
+              <a className="mt-auto bg-makari px-3 py-3 text-center text-sm font-semibold text-white hover:bg-red-800"
+                href={`${business.whatsapp}?text=${encodeURIComponent(`Olá! Gostaria de consultar a disponibilidade de ${name}${weight ? ` (${weight})` : ''}.`)}`}
+                aria-label={`Consultar ${name}${weight ? ` de ${weight}` : ''} pelo WhatsApp`}>
+                Consultar pelo WhatsApp
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
-      <section id="estabelecimentos" className="business section-space"><div className="business-decoration" aria-hidden="true">m</div><div className="business-content reveal"><p className="eyebrow">PARA ESTABELECIMENTOS</p><h2>Na sua cozinha,<br/><em>a gente soma.</em></h2><p>Seu estabelecimento tem uma receita.<br/>A Makari tem a massa para fazer parte dela.</p><p className="business-detail">Fornecemos massas para restaurantes, supermercados e outros estabelecimentos, com entregas em toda a Região Metropolitana do Recife e em Caruaru. Converse com nossa equipe para conhecer os produtos e consultar as condições de fornecimento.</p><a className="button button-cream" href={whatsappLink('supply')}>Vamos falar sobre fornecimento</a><span className="contact-caption">ATENDIMENTO COMERCIAL VIA WHATSAPP</span></div></section>
       <section className="find-us section-space"><div id="visite" className="visit reveal"><p className="eyebrow">VISITE A MAKARI</p><h2>É de Recife.<br/><em>É daqui.</em></h2><p>A nossa fábrica também atende o público. Fale com a gente e combine sua visita à Makari.</p>{business.address && <p>{business.address}</p>}{business.hours && <p>{business.hours}</p>}<a className="button button-red" href={business.address && business.mapsUrl ? business.mapsUrl : whatsappLink('visit')}>{business.address && business.mapsUrl ? 'Como chegar' : 'Consultar atendimento'}</a></div><div id="onde-encontrar" className="where reveal"><p className="eyebrow">ONDE ENCONTRAR</p><h2>Mais perto<br/><em>da sua mesa.</em></h2><p>Quer levar Makari para casa? Consulte os pontos de venda e saiba onde encontrar nossas massas.</p>{business.retailers.length ? business.retailers.map(retailer => <a className="text-link dark" key={retailer.url} href={retailer.url}>{retailer.name}</a>) : <a className="text-link dark" href={whatsappLink('retailers')}>Consultar pontos de venda</a>}<div className="where-note"><span aria-hidden="true">✳</span><p>Da escolha da massa<br/>ao último garfo.</p></div></div></section>
     </main>
     <footer className="footer"><div className="footer-top"><a href="#inicio" aria-label="Makari — voltar ao início"><Brand/></a><p>O seu tempero.<br/>A nossa massa.</p><div><a href={business.instagram}>Instagram</a><a href={business.whatsapp}>Contato comercial</a>{business.mapsUrl && business.address && <a href={business.mapsUrl}>Google Maps</a>}<span>{business.phoneLabel}</span></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Makari · Recife, Pernambuco</span><span>Imagens de pratos ilustrativas.</span><a href="#inicio">Voltar ao topo</a></div></footer>
