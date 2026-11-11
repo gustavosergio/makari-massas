@@ -96,7 +96,18 @@ export default function App() {
           </ul>
         </div>
       </section>
-      <section className="find-us section-space"><div id="sobre" className="reveal"><p className="eyebrow">SOBRE A MAKARI</p><h2>Macarrão para yakissoba <em>feito no Recife.</em></h2><p>Fabricamos macarrão para yakissoba em embalagens de 500 g e 1 kg e fornecemos para restaurantes, supermercados e outros estabelecimentos.</p><a className="text-link dark" href="#massas">Ver macarrões</a></div><div id="onde-encontrar" className="where reveal"><p className="eyebrow">ONDE ENCONTRAR</p><h2>Mais perto<br/><em>da sua mesa.</em></h2><p>Quer levar Makari para casa? Consulte os pontos de venda e saiba onde comprar o macarrão para yakissoba Makari.</p>{business.retailers.length ? business.retailers.map(retailer => <a className="text-link dark" key={retailer.url} href={retailer.url}>{retailer.name}</a>) : <a className="text-link dark" href={whatsappLink('retailers')}>Consultar pontos de venda</a>}<div className="where-note"><span className="makari-symbol" aria-hidden="true" /><p>Da escolha da massa<br/>ao último garfo.</p></div></div></section>
+      <section className="find-us section-space">
+        <div id="sobre" className="reveal">
+          <p className="eyebrow">SOBRE A MAKARI</p>
+          <h2>Macarrão para yakissoba <em>feito no Recife.</em></h2>
+          <p>A Makari Massas Alimentícias fabrica macarrão para yakissoba em embalagens de 500 g e 1 kg. Nossa missão é oferecer uma massa de qualidade para o dia a dia de restaurantes e distribuidores.</p>
+          <p>Da produção à entrega, trabalhamos para manter a qualidade e o sabor da massa que sai da nossa fábrica, passa pela cozinha dos restaurantes e chega à mesa de muitas famílias.</p>
+          <p>Construímos parcerias duradouras com atendimento responsável e compromisso com nossos clientes.</p>
+          <p><strong>Da nossa produção à mesa da sua família, qualidade em cada massa.</strong></p>
+          <a className="text-link dark" href="#massas">Ver macarrões</a>
+        </div>
+        <div id="onde-encontrar" className="where reveal"><p className="eyebrow">ONDE ENCONTRAR</p><h2>Mais perto<br/><em>da sua mesa.</em></h2><p>Quer levar Makari para casa? Consulte os pontos de venda e saiba onde comprar o macarrão para yakissoba Makari.</p>{business.retailers.length ? business.retailers.map(retailer => <a className="text-link dark" key={retailer.url} href={retailer.url}>{retailer.name}</a>) : <a className="text-link dark" href={whatsappLink('retailers')}>Consultar pontos de venda</a>}<div className="where-note"><span className="makari-symbol" aria-hidden="true" /><p>Da escolha da massa<br/>ao último garfo.</p></div></div>
+      </section>
     </main>
     <dialog ref={photoDialog} className="product-zoom" aria-label="Foto ampliada da embalagem">
       <form method="dialog"><button type="submit">Fechar</button></form>
