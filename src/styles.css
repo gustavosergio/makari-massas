@@ -1,5 +1,26 @@
 @import "tailwindcss";
 @theme { --color-makari: #b82025; --color-cream: #f7f2e8; }
+.footer-top > div .footer-contact {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-style: normal;
+}
+.footer-contact svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.footer-top > div address.footer-contact a {
+  padding: 0;
+  border: 0;
+}
 .hero .hero-image img {
   object-fit: contain;
   object-position: right center;

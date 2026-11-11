@@ -91,6 +91,35 @@ export default function App() {
       </section>
       <section className="find-us section-space"><div id="sobre" className="reveal"><p className="eyebrow">SOBRE A MAKARI</p><h2>Macarrão para yakissoba <em>feito no Recife.</em></h2><p>Fabricamos macarrão para yakissoba em embalagens de 500 g e 1 kg e fornecemos para restaurantes, supermercados e outros estabelecimentos.</p><a className="text-link dark" href="#massas">Ver embalagens</a></div><div id="onde-encontrar" className="where reveal"><p className="eyebrow">ONDE ENCONTRAR</p><h2>Mais perto<br/><em>da sua mesa.</em></h2><p>Quer levar Makari para casa? Consulte os pontos de venda e saiba onde comprar o macarrão para yakissoba Makari.</p>{business.retailers.length ? business.retailers.map(retailer => <a className="text-link dark" key={retailer.url} href={retailer.url}>{retailer.name}</a>) : <a className="text-link dark" href={whatsappLink('retailers')}>Consultar pontos de venda</a>}<div className="where-note"><span aria-hidden="true">✳</span><p>Da escolha da massa<br/>ao último garfo.</p></div></div></section>
     </main>
-    <footer className="footer"><div className="footer-top"><a href="#inicio" aria-label="Makari — voltar ao início"><Brand/></a><p>O seu tempero.<br/>A nossa massa.</p><div><a href={business.instagram}>Instagram</a><a href={business.whatsapp}>Contato comercial</a>{business.mapsUrl && business.address && <a href={business.mapsUrl}>Google Maps</a>}<span>{business.phoneLabel}</span></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Makari · Recife, Pernambuco</span><span>Imagens de pratos ilustrativas.</span><a href="#inicio">Voltar ao topo</a></div></footer>
+    <footer className="footer">
+      <div className="footer-top">
+        <a href="#inicio" aria-label="Makari — voltar ao início"><Brand /></a>
+        <p>O seu tempero.<br />A nossa massa.</p>
+        <div>
+          <a className="footer-contact" href={business.instagram}>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".75" fill="currentColor" stroke="none" /></svg>
+            Instagram
+          </a>
+          <a className="footer-contact" href={business.whatsapp}>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 17.5 3.5 21l4-1a9 9 0 1 0-2.5-2.5Z" /><path d="M8 8c-1 1 .3 3.5 2.4 5.6s4.6 3.4 5.6 2.4l1-1-2.5-1.5-1 1a9 9 0 0 1-4-4l1-1L9 7Z" /></svg>
+            Contato comercial
+          </a>
+          <a className="footer-contact" href={`tel:+55${business.phoneLabel.replace(/\D/g, '')}`}>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 3 3 5-2 2a13 13 0 0 0 6 6l2-2 5 3v3c0 1-1 1-2 1A17 17 0 0 1 3 5c0-1 0-2 1-2Z" /></svg>
+            {business.phoneLabel}
+          </a>
+          {business.address && (
+            <address className="footer-contact">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>
+              {business.mapsUrl ? <a href={business.mapsUrl}>{business.address}</a> : business.address}
+            </address>
+          )}
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <span>© {new Date().getFullYear()} Makari · Recife, Pernambuco</span>
+        <a href="#inicio">Voltar ao topo</a>
+      </div>
+    </footer>
   </>
 }
