@@ -2,12 +2,20 @@
 @theme { --color-makari: #b82025; --color-cream: #f7f2e8; }
 .clients {
   display: flex;
-  min-height: 460px;
+  aspect-ratio: 4 / 3;
+  max-height: 760px;
   flex-direction: column;
   justify-content: flex-end;
   color: #fff;
-  background: linear-gradient(to top, #211416 0%, #211416bf 34%, transparent 76%),
-    url('/images/clientes-caminhao-makari.png') center 48% / cover no-repeat #211416;
+  background: linear-gradient(to top, #211416 0%, #211416b3 20%, transparent 50%),
+    url('/images/clientes-caminhao-makari.png') center / contain no-repeat #211416;
+}
+@media (max-width: 640px) {
+  .clients {
+    aspect-ratio: auto;
+    padding-top: calc(75vw + 20px);
+    background: url('/images/clientes-caminhao-makari.png') center top / 100% auto no-repeat #211416;
+  }
 }
 .catalog {
   color: var(--cream);
