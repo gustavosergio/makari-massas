@@ -52,13 +52,13 @@ export default function App() {
         <ul className="grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { name: 'Macarrão para yakissoba', weight: '500 g', photo: '/images/makari-yakissoba-500g.png' },
-            { name: 'Macarrão para yakissoba', weight: '1 kg' },
+            { name: 'Macarrão para yakissoba', weight: '1 kg', photo: '/images/makari-yakissoba-1kg.png' },
             { name: 'Linguini' },
             { name: 'Talharim' },
           ].map(({ name, weight, photo }) => (
             <li key={weight ? `${name}-${weight}` : name} className="flex flex-col border border-stone-200 bg-white p-4">
               {photo && (
-                <img className="mb-4 h-52! w-full object-contain!" src={photo} loading="lazy" width="640" height="640" alt="Embalagem Makari de macarrão para yakissoba de 500 g" />
+                <img className="mb-4 h-52! w-full object-contain!" src={photo} loading="lazy" width="640" height="640" alt={`Embalagem Makari de ${name}${weight ? ` de ${weight}` : ''}`} />
               )}
               <p className="text-sm font-semibold text-stone-600">Makari</p>
               <h3 className="mt-1 mb-4 font-sans! text-lg font-bold! tracking-normal!">{name}{weight && ` · ${weight}`}</h3>
