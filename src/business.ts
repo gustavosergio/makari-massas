@@ -10,10 +10,10 @@ export const business = {
   mapsUrl: null as string | null,
   retailers: [] as { name: string; url: string }[],
   messages: {
-    supply: 'Olá! Tenho um estabelecimento e gostaria de conhecer as massas Makari e as condições de fornecimento.',
+    supply: 'Olá! Tenho um estabelecimento e gostaria de conhecer o macarrão para yakissoba Makari e as condições de fornecimento.',
     visit: 'Olá! Gostaria de consultar o endereço, os horários e o atendimento ao público na fábrica Makari.',
-    retailers: 'Olá! Gostaria de saber onde encontrar as massas Makari e quais são os pontos de venda.',
-    product: 'Olá! Gostaria de saber mais sobre as massas Makari.',
+    retailers: 'Olá! Gostaria de saber onde encontrar o macarrão para yakissoba Makari e quais são os pontos de venda.',
+    product: 'Olá! Gostaria de saber mais sobre o macarrão para yakissoba Makari.',
   },
 }
 export function whatsappLink(subject: keyof typeof business.messages) {
