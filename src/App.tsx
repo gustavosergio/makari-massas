@@ -53,9 +53,10 @@ export default function App() {
         <i className="ribbon-logo" aria-hidden="true" />
         <span>Entregamos para empresas</span>
       </div>
-      <section id="massas" className="section-space bg-white" aria-labelledby="massas-title">
-        <h2 id="massas-title" className="mb-8 border-b border-stone-200 pb-5 text-4xl sm:text-5xl">Macarrão para yakissoba</h2>
-        <ul className="grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 max-w-2xl">
+      <section id="massas" className="section-space catalog" aria-labelledby="massas-title">
+        <h2 id="massas-title" className="mb-8 border-b border-white/25 pb-5 text-4xl sm:text-5xl">Macarrão para yakissoba</h2>
+        <div className="grid items-center gap-8 lg:grid-cols-2">
+        <ul className="m-0 grid list-none grid-cols-1 gap-5 p-0 text-stone-900 sm:grid-cols-2">
           {[
             { name: 'Macarrão para yakissoba', weight: '500 g', photo: '/images/makari-yakissoba-500g.png' },
             { name: 'Macarrão para yakissoba', weight: '1 kg', photo: '/images/makari-yakissoba-1kg.png' },
@@ -66,7 +67,7 @@ export default function App() {
               )}
               <p className="text-sm font-semibold text-stone-600">Makari</p>
               <h3 className="mt-1 mb-4 font-sans! text-lg font-bold! tracking-normal!">{name}{weight && ` · ${weight}`}</h3>
-              <a className="mt-auto bg-makari px-3 py-3 text-center text-sm font-semibold text-white hover:bg-red-800"
+              <a className="mt-auto bg-makari px-3 py-3 text-center text-sm font-semibold text-white! hover:bg-red-800"
                 href={`${business.whatsapp}?text=${encodeURIComponent(`Olá! Gostaria de consultar a disponibilidade de ${name}${weight ? ` (${weight})` : ''}.`)}`}
                 aria-label={`Consultar ${name}${weight ? ` de ${weight}` : ''} pelo WhatsApp`}>
                 Consultar pelo WhatsApp
@@ -74,6 +75,8 @@ export default function App() {
             </li>
           ))}
         </ul>
+        <img className="mx-auto h-auto! w-full max-w-[549px] drop-shadow-2xl" src="/images/yakissoba-makari-prato.png" loading="lazy" width="549" height="290" alt="Yakissoba preparado com macarrão Makari, legumes e camarões" />
+        </div>
       </section>
       <section className="section-space border-b border-stone-200" aria-labelledby="clientes-title">
         <h2 id="clientes-title" className="text-4xl sm:text-5xl">Quem compra da Makari</h2>

@@ -1,5 +1,10 @@
 @import "tailwindcss";
 @theme { --color-makari: #b82025; --color-cream: #f7f2e8; }
+.catalog {
+  color: var(--cream);
+  background: radial-gradient(ellipse at 85% 45%, #9c3426 0%, transparent 55%),
+    linear-gradient(125deg, #321419, #5b1b22 65%, #43161b);
+}
 .ribbon.makari-ribbon{justify-content:center;gap:clamp(12px,3vw,48px);font-size:clamp(19px,2.2vw,29px)}
 .ribbon .ribbon-logo{flex:0 0 28px;height:28px;border-radius:50%;background: url('/images/logo-makari.png') center top -2px / 64px 64px no-repeat}
 @media(max-width:760px){
