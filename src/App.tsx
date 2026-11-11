@@ -91,7 +91,7 @@ export default function App() {
           <h2 id="clientes-title" className="text-4xl sm:text-5xl">Nossos principais clientes</h2>
           <ul className="mt-7 grid max-w-sm list-none grid-cols-2 gap-3 p-0">
             {['KarneKeijo', 'Marítimos', 'caruaru', 'seasa'].map(name => (
-              <li key={name} className="border border-stone-300 bg-white px-3 py-4 text-center font-semibold">{name}</li>
+              <li key={name} className="border border-white/40 bg-white/10 px-3 py-4 text-center font-semibold">{name}</li>
             ))}
           </ul>
         </div>
