@@ -46,7 +46,13 @@ export default function App() {
         </div>
         <div className="hero-bottom flex justify-between"><span>MASSAS ALIMENTÍCIAS · RECIFE, PE</span><span>Prato ilustrativo</span><a href="#massas" aria-label="Rolar para nossas massas">DESLIZE PARA DESCOBRIR</a></div>
       </section>
-      <div className="ribbon" aria-hidden="true"><span>Da nossa fábrica</span><i>✳</i><span>Para a sua cozinha</span><i>✳</i><span>Com sotaque recifense</span><i>✳</i></div>
+      <div className="ribbon makari-ribbon">
+        <span>Fabricamos em Recife</span>
+        <i className="ribbon-logo" aria-hidden="true" />
+        <span>Especialistas em yakissoba</span>
+        <i className="ribbon-logo" aria-hidden="true" />
+        <span>Entregamos para empresas</span>
+      </div>
       <section id="massas" className="section-space bg-white" aria-labelledby="massas-title">
         <h2 id="massas-title" className="mb-8 border-b border-stone-200 pb-5 text-4xl sm:text-5xl">Nossas massas</h2>
         <ul className="grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 lg:grid-cols-4">
