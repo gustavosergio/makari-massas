@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { business, whatsappLink } from './business'
 
+const asset = (file: string) => `${import.meta.env.BASE_URL}images/${file}`
+
 function Brand() {
-  return <img className="brand-logo" src="/images/logo-makari.png" alt="" width="150" height="150" />
+  return <img className="brand-logo" src={asset('logo-makari.png')} alt="" width="150" height="150" />
 }
 export default function App() {
   const [menu, setMenu] = useState(false)
@@ -24,22 +26,22 @@ export default function App() {
     return () => { observer?.disconnect(); media.removeEventListener('change', setup) }
   }, [])
   useEffect(() => {
-    const close = (e: KeyboardEvent) => { if (e.key === 'Escape') { setMenu(false); document.getElementById('menu-toggle')?.focus() } }
+    const close = (e: KeyboardEvent) => { if (e.key === 'Escape' && menu && !photoDialog.current?.open) { setMenu(false); document.getElementById('menu-toggle')?.focus() } }
     document.addEventListener('keydown', close); return () => document.removeEventListener('keydown', close)
-  }, [])
+  }, [menu])
   return <>
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header className="header flex items-center justify-between">
       <a href="#inicio" aria-label="Makari — início"><Brand /></a>
       <button id="menu-toggle" className="menu-toggle" aria-expanded={menu} aria-controls="navigation" onClick={() => setMenu(!menu)}>{menu ? 'Fechar −' : 'Menu +'}</button>
       <nav id="navigation" className={menu ? 'navigation open' : 'navigation'} aria-label="Principal">
-        <a href="#massas" onClick={() => setMenu(false)}>Macarrão para yakissoba</a><a href="#estabelecimentos" onClick={() => setMenu(false)}>Para estabelecimentos</a><a href="#sobre" onClick={() => setMenu(false)}>Sobre a Makari</a>
+        <a href="#massas" onClick={() => setMenu(false)}>Macarrão para yakissoba</a><a href="#pedidos" onClick={() => setMenu(false)}>Para estabelecimentos</a><a href="#sobre" onClick={() => setMenu(false)}>Sobre a Makari</a>
         <a className="nav-contact" href={whatsappLink('supply')}>Vamos conversar</a>
       </nav>
     </header>
     <main id="conteudo">
       <section id="inicio" className="hero">
-        <div className="hero-image"><img src="/images/yakissoba-servido.jpg" width="1080" height="1350" fetchPriority="high" alt="Pegador levantando o macarrão de um prato de yakissoba" /></div>
+        <div className="hero-image"><img src={asset('yakissoba-servido.jpg')} width="1080" height="1350" fetchPriority="high" alt="Pegador levantando o macarrão de um prato de yakissoba" /></div>
         <div className="hero-content">
           <p className="eyebrow intro-1"><span className="makari-symbol" aria-hidden="true" /> FÁBRICA E DISTRIBUIDORA EM RECIFE</p>
           <h1 className="intro-2">Macarrão para yakissoba <em>para o seu negócio.</em></h1>
@@ -60,8 +62,8 @@ export default function App() {
         <div className="grid items-center gap-8 lg:grid-cols-2">
         <ul className="m-0 grid list-none grid-cols-1 gap-5 p-0 text-stone-900 sm:grid-cols-2">
           {[
-            { name: 'Macarrão para yakissoba', weight: '500 g', photo: '/images/makari-yakissoba-500g.png' },
-            { name: 'Macarrão para yakissoba', weight: '1 kg', photo: '/images/makari-yakissoba-1kg.png' },
+            { name: 'Macarrão para yakissoba', weight: '500 g', photo: asset('makari-yakissoba-500g.png') },
+            { name: 'Macarrão para yakissoba', weight: '1 kg', photo: asset('makari-yakissoba-1kg.png') },
           ].map(({ name, weight, photo }) => (
             <li key={weight ? `${name}-${weight}` : name} className="flex flex-col border border-stone-200 bg-white p-4">
               {photo && (
@@ -82,15 +84,15 @@ export default function App() {
             </li>
           ))}
         </ul>
-        <img className="mx-auto h-auto! w-full max-w-[549px] drop-shadow-2xl" src="/images/yakissoba-makari-prato.png" loading="lazy" width="549" height="290" alt="Yakissoba preparado com macarrão Makari, legumes e camarões" />
+        <img className="mx-auto h-auto! w-full max-w-[549px] drop-shadow-2xl" src={asset('yakissoba-makari-prato.png')} loading="lazy" width="549" height="290" alt="Yakissoba preparado com macarrão Makari, legumes e camarões" />
         </div>
       </section>
       <section id="clientes" className="clients" aria-labelledby="clientes-title">
-        <img className="clients-photo" src="/images/clientes-caminhao-makari.png" width="1600" height="1200" loading="lazy" alt="Caminhão da KarneKeijo com a marca e as embalagens do macarrão Makari na lateral" />
+        <img className="clients-photo" src={asset('clientes-caminhao-makari.png')} width="1600" height="1200" loading="lazy" alt="Caminhão da KarneKeijo com a marca e as embalagens do macarrão Makari na lateral" />
         <div className="clients-panel">
           <h2 id="clientes-title" className="text-4xl sm:text-5xl">Nossos principais clientes</h2>
           <ul className="mt-7 grid max-w-sm list-none grid-cols-2 gap-3 p-0">
-            {['KarneKeijo', 'Marítimos', 'caruaru', 'seasa'].map(name => (
+            {['KarneKeijo', 'Marítimos', ...(import.meta.env.DEV ? ['caruaru', 'seasa'] : [])].map(name => (
               <li key={name} className="border border-white/40 bg-white/10 px-3 py-4 text-center font-semibold">{name}</li>
             ))}
           </ul>
