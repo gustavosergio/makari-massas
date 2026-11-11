@@ -1,5 +1,24 @@
 @import "tailwindcss";
 @theme { --color-makari: #b82025; --color-cream: #f7f2e8; }
+.hero .hero-image img {
+  object-fit: contain;
+  object-position: right center;
+}
+@media (max-width: 760px) {
+  .hero:has(.hero-image) { min-height: 0; }
+  .hero .hero-content { padding-bottom: 24px; }
+  .hero .hero-image {
+    position: relative;
+    inset: auto;
+    order: 1;
+    height: auto;
+    padding-bottom: 50px;
+    animation: none;
+  }
+  .hero .hero-image img { height: auto; object-position: center; }
+  .hero:has(.hero-image)::after { content: none; }
+  .hero .hero-bottom { z-index: 2; }
+}
 .clients {
   display: grid;
   grid-template-columns: 3fr 2fr;
