@@ -78,12 +78,11 @@ export default function App() {
         <img className="mx-auto h-auto! w-full max-w-[549px] drop-shadow-2xl" src="/images/yakissoba-makari-prato.png" loading="lazy" width="549" height="290" alt="Yakissoba preparado com macarrão Makari, legumes e camarões" />
         </div>
       </section>
-      <section className="section-space border-b border-stone-200" aria-labelledby="clientes-title">
-        <h2 id="clientes-title" className="text-4xl sm:text-5xl">Quem compra da Makari</h2>
-        <p className="mt-3 text-sm text-stone-600">Nomes provisórios para apresentação.</p>
-        <ul className="mt-7 grid list-none grid-cols-2 gap-4 p-0 md:grid-cols-4">
-          {['Loja 1', 'Loja 2', 'Loja 3', 'Loja 4'].map(name => (
-            <li key={name} className="border border-stone-200 bg-white px-4 py-6 text-center font-semibold">{name}</li>
+      <section id="clientes" className="section-space clients" aria-labelledby="clientes-title">
+        <h2 id="clientes-title" className="text-4xl sm:text-5xl">Nossos principais clientes</h2>
+        <ul className="mt-7 grid max-w-sm list-none grid-cols-2 gap-3 p-0">
+          {['KarneKeijo', 'Marítimos'].map(name => (
+            <li key={name} className="border border-white/40 bg-white/10 px-3 py-4 text-center font-semibold">{name}</li>
           ))}
         </ul>
       </section>

@@ -1,5 +1,14 @@
 @import "tailwindcss";
 @theme { --color-makari: #b82025; --color-cream: #f7f2e8; }
+.clients {
+  display: flex;
+  min-height: 460px;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+  background: linear-gradient(to top, #211416 0%, #211416bf 34%, transparent 76%),
+    url('/images/clientes-caminhao-makari.png') center 48% / cover no-repeat #211416;
+}
 .catalog {
   color: var(--cream);
   background: radial-gradient(ellipse at 85% 45%, #9c3426 0%, transparent 55%),
