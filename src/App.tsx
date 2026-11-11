@@ -107,7 +107,12 @@ export default function App() {
           <p><strong>MAKARI MASSAS ALIMENTÍCIAS:<br />Da nossa produção à mesa da sua família, qualidade em cada massa</strong></p>
           <a className="text-link dark" href="#massas">Ver macarrões</a>
         </div>
-        <div id="onde-encontrar" className="where reveal"><p className="eyebrow">ONDE ENCONTRAR</p><h2>Mais perto<br/><em>da sua mesa.</em></h2><p>Quer levar Makari para casa? Consulte os pontos de venda e saiba onde comprar o macarrão para yakissoba Makari.</p>{business.retailers.length ? business.retailers.map(retailer => <a className="text-link dark" key={retailer.url} href={retailer.url}>{retailer.name}</a>) : <a className="text-link dark" href={whatsappLink('retailers')}>Consultar pontos de venda</a>}<div className="where-note"><span className="makari-symbol" aria-hidden="true" /><p>Da escolha da massa<br/>ao último garfo.</p></div></div>
+        <div id="pedidos" className="where reveal">
+          <h2>Pedidos e entregas</h2>
+          <p>Fornecemos macarrão para yakissoba em embalagens de 500 g e 1 kg, com entregas para estabelecimentos em toda a Região Metropolitana do Recife e em Caruaru.</p>
+          <p>Informe sua cidade e a quantidade desejada pelo WhatsApp para consultar preços e prazos de entrega.</p>
+          <a className="button button-red" href={whatsappLink('supply')}>Solicitar cotação pelo WhatsApp</a>
+        </div>
       </section>
     </main>
     <dialog ref={photoDialog} className="product-zoom" aria-label="Foto ampliada da embalagem">
