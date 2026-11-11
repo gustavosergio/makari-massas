@@ -40,10 +40,10 @@ export default function App() {
       <section id="inicio" className="hero">
         <div className="hero-image"><img src="/images/yakissoba.webp" width="1536" height="1024" fetchPriority="high" alt="Prato ilustrativo de yakissoba com massa dourada, legumes e carne" /></div>
         <div className="hero-content">
-          <p className="eyebrow intro-1"><span className="tiny-sun">✳</span> DE RECIFE. PARA A SUA MESA.</p>
-          <h1 className="intro-2">O macarrão<br/>por trás de um<br/>bom <em>yakissoba.</em></h1>
-          <p className="hero-description intro-3">Fábrica e distribuidora de massas em Recife. Atendemos na fábrica e entregamos para estabelecimentos.</p>
-          <div className="hero-actions intro-3"><a className="button button-cream" href={whatsappLink('supply')}>Comprar para meu estabelecimento <Arrow /></a><a className="text-link" href="#massas">Conhecer as massas <span aria-hidden="true">↓</span></a></div>
+          <p className="eyebrow intro-1"><span className="tiny-sun">✳</span> FÁBRICA E DISTRIBUIDORA EM RECIFE</p>
+          <h1 className="intro-2">Fornecemos massas para <em>o seu negócio.</em></h1>
+          <p className="hero-description intro-3">Fabricamos macarrão para yakissoba, linguini e talharim e entregamos para restaurantes, supermercados e outros estabelecimentos.</p>
+          <div className="hero-actions intro-3"><a className="button button-cream" href={whatsappLink('supply')}>Solicitar cotação pelo WhatsApp <Arrow /></a><a className="text-link" href="#massas">Conhecer as massas <span aria-hidden="true">↓</span></a></div>
         </div>
         <div className="hero-bottom flex justify-between"><span>MASSAS ALIMENTÍCIAS · RECIFE, PE</span><span>Prato ilustrativo</span><a href="#massas" aria-label="Rolar para nossas massas">DESLIZE PARA DESCOBRIR ↓</a></div>
       </section>
