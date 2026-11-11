@@ -5,9 +5,9 @@ export const business = {
   instagram: 'https://www.instagram.com/makariyakissoba/',
   whatsapp: 'https://wa.me/5581992345470',
   phoneLabel: '(81) 99234-5470',
-  address: null as string | null,
+  address: 'Rua Catiguá, 187, Vasco da Gama, Recife – PE',
   hours: null as string | null,
-  mapsUrl: null as string | null,
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rua%20Catigu%C3%A1%2C%20187%2C%20Vasco%20da%20Gama%2C%20Recife%20%E2%80%93%20PE',
   retailers: [] as { name: string; url: string }[],
   messages: {
     supply: 'Olá! Tenho um estabelecimento e gostaria de conhecer o macarrão para yakissoba Makari e as condições de fornecimento.',
