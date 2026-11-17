@@ -8,6 +8,7 @@ function Brand() {
 }
 export default function App() {
   const [menu, setMenu] = useState(false)
+  const [playHeroVideo, setPlayHeroVideo] = useState(false)
   const photoDialog = useRef<HTMLDialogElement>(null)
   const [hoverZoom, setHoverZoom] = useState<{ src: string; x: number; y: number } | null>(null)
   const [zoomPhoto, setZoomPhoto] = useState<{ src: string; label: string } | null>(null)
@@ -15,6 +16,7 @@ export default function App() {
     const media = matchMedia('(prefers-reduced-motion: reduce)')
     let observer: IntersectionObserver | undefined
     function setup() {
+      setPlayHeroVideo(!media.matches)
       observer?.disconnect()
       document.querySelectorAll('.reveal').forEach(el => el.classList.remove('waiting'))
       if (media.matches) return
@@ -52,7 +54,18 @@ export default function App() {
     </header>
     <main id="conteudo">
       <section id="inicio" className="hero">
-        <div className="hero-image"><img src={asset('yakissoba-servido.jpg')} width="1080" height="1350" fetchPriority="high" alt="Pegador levantando o macarrão de um prato de yakissoba" /></div>
+        <div className="hero-image">
+          {playHeroVideo ? (
+            <video autoPlay muted loop playsInline controls preload="metadata"
+              width="720" height="1280"
+              poster={asset('yakissoba-servido.jpg')}
+              src={asset('yakissoba-abertura.mp4')}
+              aria-label="Vídeo de yakissoba"
+              onError={() => setPlayHeroVideo(false)} />
+          ) : (
+            <img src={asset('yakissoba-servido.jpg')} width="1080" height="1350" fetchPriority="high" alt="Pegador levantando o macarrão de um prato de yakissoba" />
+          )}
+        </div>
         <div className="hero-content">
           <p className="eyebrow intro-1"><span className="makari-symbol" aria-hidden="true" /> FÁBRICA E DISTRIBUIDORA EM RECIFE</p>
           <h1 className="intro-2">Macarrão para yakissoba <em>para o seu negócio.</em></h1>
