@@ -55,21 +55,21 @@ export default function App() {
     <main id="conteudo">
       <section id="inicio" className="hero">
         <div className="hero-image">
-          {playHeroVideo ? (
-            <figure className="hero-video">
-              <div className="hero-video-frame">
-              <video autoPlay muted loop playsInline preload="metadata"
-                width="720" height="1280"
-                poster={asset('yakissoba-servido.jpg')}
-                src={asset('yakissoba-abertura.mp4')}
-                aria-label="Vídeo de yakissoba"
-                onError={() => setPlayHeroVideo(false)} />
-              </div>
-              <figcaption>Vídeo fornecido por Teichi Temakeria</figcaption>
-            </figure>
-          ) : (
-            <img src={asset('yakissoba-servido.jpg')} width="1080" height="1350" fetchPriority="high" alt="Pegador levantando o macarrão de um prato de yakissoba" />
-          )}
+          <figure className="hero-video">
+            <div className="hero-video-frame">
+              {playHeroVideo ? (
+                <video autoPlay muted loop playsInline preload="metadata"
+                  width="720" height="1280"
+                  poster={asset('yakissoba-capa.jpg')}
+                  src={asset('yakissoba-abertura.mp4')}
+                  aria-label="Vídeo de yakissoba"
+                  onError={() => setPlayHeroVideo(false)} />
+              ) : (
+                <img src={asset('yakissoba-capa.jpg')} width="720" height="1280" fetchPriority="high" alt="Yakissoba servido em um prato" />
+              )}
+            </div>
+            <figcaption>Vídeo fornecido por Teichi Temakeria</figcaption>
+          </figure>
         </div>
         <div className="hero-content">
           <p className="eyebrow intro-1"><span className="makari-symbol" aria-hidden="true" /> FÁBRICA E DISTRIBUIDORA EM RECIFE</p>

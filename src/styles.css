@@ -127,7 +127,7 @@
   max-width: 100%;
   margin-left: auto;
 }
-.hero-video-frame video {
+.hero .hero-video-frame :is(img, video) {
   position: absolute;
   display: block;
   width: 127.85%;
