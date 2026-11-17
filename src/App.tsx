@@ -9,6 +9,7 @@ function Brand() {
 export default function App() {
   const [menu, setMenu] = useState(false)
   const photoDialog = useRef<HTMLDialogElement>(null)
+  const [hoverZoom, setHoverZoom] = useState<{ src: string; x: number; y: number } | null>(null)
   const [zoomPhoto, setZoomPhoto] = useState<{ src: string; label: string } | null>(null)
   useEffect(() => {
     const media = matchMedia('(prefers-reduced-motion: reduce)')
@@ -69,7 +70,7 @@ export default function App() {
       </div>
       <section id="massas" className="section-space catalog" aria-labelledby="massas-title">
         <h2 id="massas-title" className="mb-8 border-b border-white/25 pb-5 text-4xl sm:text-5xl">Macarrão para yakissoba</h2>
-        <div className="grid items-center gap-8 lg:grid-cols-2">
+        <div className="catalog-products grid items-center gap-8 lg:grid-cols-2">
         <ul className="m-0 grid list-none grid-cols-1 gap-5 p-0 text-stone-900 sm:grid-cols-2">
           {[
             { name: 'Macarrão para yakissoba', weight: '500 g', photo: asset('makari-yakissoba-500g.png') },
@@ -77,11 +78,24 @@ export default function App() {
           ].map(({ name, weight, photo }) => (
             <li key={weight ? `${name}-${weight}` : name} className="flex flex-col border border-stone-200 bg-white p-4">
               {photo && (
-                <button type="button" className="mb-4 cursor-zoom-in" aria-label={`Ampliar embalagem de ${weight}`} onClick={() => {
+                <button type="button" className="product-photo-zoom mb-4 cursor-zoom-in" aria-label={`Ampliar embalagem de ${weight}`}
+                  onPointerMove={event => {
+                    if (event.pointerType !== 'mouse') return
+                    const bounds = event.currentTarget.getBoundingClientRect()
+                    setHoverZoom({
+                      src: photo,
+                      x: 100 * (event.clientX - bounds.left) / bounds.width,
+                      y: 100 * (event.clientY - bounds.top) / bounds.height,
+                    })
+                  }}
+                  onPointerLeave={() => setHoverZoom(null)}
+                  onClick={() => {
+                  setHoverZoom(null)
                   setZoomPhoto({ src: photo, label: `Embalagem Makari de ${name} de ${weight}` })
                   photoDialog.current?.showModal()
                 }}>
-                <img className="h-52! w-full object-contain!" src={photo} loading="lazy" width="640" height="640" alt={`Embalagem Makari de ${name}${weight ? ` de ${weight}` : ''}`} />
+                <img src={photo} loading="lazy" width="640" height="640" alt={`Embalagem Makari de ${name}${weight ? ` de ${weight}` : ''}`} />
+                {hoverZoom?.src === photo && <span className="product-zoom-inline" aria-hidden="true" style={{ backgroundImage: `url(${photo})`, backgroundPosition: `${hoverZoom.x}% ${hoverZoom.y}%` }} />}
                 </button>
               )}
               <p className="text-sm font-semibold text-stone-600">Makari</p>
@@ -94,6 +108,7 @@ export default function App() {
             </li>
           ))}
         </ul>
+        {hoverZoom && <div className="product-zoom-preview" aria-hidden="true" style={{ backgroundImage: `url(${hoverZoom.src})`, backgroundPosition: `${hoverZoom.x}% ${hoverZoom.y}%` }} />}
         <img className="mx-auto h-auto! w-full max-w-[549px] drop-shadow-2xl" src={asset('yakissoba-makari-prato.png')} loading="lazy" width="549" height="290" alt="Yakissoba preparado com macarrão Makari, legumes e camarões" />
         </div>
       </section>

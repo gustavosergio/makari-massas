@@ -1,5 +1,34 @@
 @import "tailwindcss";
 @theme { --color-makari: #b82025; --color-cream: #f7f2e8; }
+.catalog-products { position: relative; }
+.product-photo-zoom {
+  position: relative;
+  width: min(100%, 208px);
+  aspect-ratio: 1;
+  align-self: center;
+}
+.product-zoom-inline,
+.product-zoom-preview {
+  display: none;
+  position: absolute;
+  pointer-events: none;
+  background-color: white;
+  background-repeat: no-repeat;
+}
+@media (any-hover: hover) {
+  .product-zoom-inline { display: block; inset: 0; background-size: 280%; }
+}
+@media (any-hover: hover) and (min-width: 64rem) {
+  .product-zoom-inline { display: none; }
+  .product-zoom-preview {
+    display: block;
+    inset: 0 0 0 calc(50% + 1rem);
+    z-index: 2;
+    border: 1px solid #e7ded3;
+    border-radius: 6px;
+    background-size: max(150%, 640px);
+  }
+}
 .footer.footer {
   position: relative;
   background: radial-gradient(ellipse at top left, #60212a 0%, transparent 68%), #25201e;
