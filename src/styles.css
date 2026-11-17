@@ -97,12 +97,29 @@
   padding: 0;
   border: 0;
 }
-.hero .hero-image :is(img, video) {
+.hero .hero-image img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: right center;
+}
+.hero-video-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 176 / 294;
+  height: 100%;
+  max-width: 100%;
+  margin-left: auto;
+}
+.hero-video-frame video {
+  position: absolute;
+  display: block;
+  width: 127.85%;
+  max-width: none;
+  height: auto;
+  left: -13.64%;
+  top: -21.09%;
 }
 @media (max-width: 760px) {
   .hero:has(.hero-image) { min-height: 0; }
@@ -115,7 +132,8 @@
     padding-bottom: 50px;
     animation: none;
   }
-  .hero .hero-image :is(img, video) { height: auto; object-position: center; }
+  .hero .hero-image img { height: auto; object-position: center; }
+  .hero-video-frame { width: 100%; height: auto; }
   .hero:has(.hero-image)::after { content: none; }
   .hero .hero-bottom { z-index: 2; }
 }
