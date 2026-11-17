@@ -121,7 +121,6 @@ export default function App() {
       <form method="dialog"><button type="submit">Fechar</button></form>
       {zoomPhoto && <img src={zoomPhoto.src} alt={zoomPhoto.label} />}
     </dialog>
-    <div className="footer-transition" aria-hidden="true" />
     <footer className="footer">
       <div className="footer-top">
         <a href="#inicio" aria-label="Makari — voltar ao início"><Brand /></a>
