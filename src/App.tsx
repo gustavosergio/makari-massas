@@ -102,7 +102,15 @@ export default function App() {
         <div className="clients-panel">
           <h2 id="clientes-title" className="text-4xl sm:text-5xl">Alguns de nossos clientes</h2>
           <ul className="mt-7 grid max-w-sm list-none grid-cols-2 gap-3 p-0">
-            {['KarneKeijo', 'Marítimos', ...(import.meta.env.DEV ? ['caruaru', 'seasa'] : [])].map(name => (
+            {[
+              'KarneKeijo',
+              'Marítimos',
+              'Teichi Temakeria',
+              'China Arthurr',
+              'Yakisoba Dikaza',
+              'China Dragon',
+              ...(import.meta.env.DEV ? ['caruaru', 'seasa'] : []),
+            ].map(name => (
               <li key={name} className="border border-white/40 bg-white/10 px-3 py-4 text-center font-semibold">{name}</li>
             ))}
           </ul>
