@@ -104,11 +104,26 @@
   object-fit: contain;
   object-position: right center;
 }
+.hero-video {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 100%;
+  margin: 0;
+}
+.hero-video figcaption {
+  position: relative;
+  z-index: 1;
+  padding: 5px 12px;
+  color: #d9cfc4;
+  font-size: 10px;
+  line-height: 1.2;
+}
 .hero-video-frame {
   position: relative;
   overflow: hidden;
   aspect-ratio: 176 / 294;
-  height: 100%;
+  height: calc(100% - 22px);
   max-width: 100%;
   margin-left: auto;
 }

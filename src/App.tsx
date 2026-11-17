@@ -56,14 +56,17 @@ export default function App() {
       <section id="inicio" className="hero">
         <div className="hero-image">
           {playHeroVideo ? (
-            <div className="hero-video-frame">
+            <figure className="hero-video">
+              <div className="hero-video-frame">
               <video autoPlay muted loop playsInline preload="metadata"
                 width="720" height="1280"
                 poster={asset('yakissoba-servido.jpg')}
                 src={asset('yakissoba-abertura.mp4')}
                 aria-label="Vídeo de yakissoba"
                 onError={() => setPlayHeroVideo(false)} />
-            </div>
+              </div>
+              <figcaption>Vídeo fornecido por Teichi Temakeria</figcaption>
+            </figure>
           ) : (
             <img src={asset('yakissoba-servido.jpg')} width="1080" height="1350" fetchPriority="high" alt="Pegador levantando o macarrão de um prato de yakissoba" />
           )}
