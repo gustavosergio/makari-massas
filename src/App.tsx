@@ -36,7 +36,16 @@ export default function App() {
       <button id="menu-toggle" className="menu-toggle" aria-expanded={menu} aria-controls="navigation" onClick={() => setMenu(!menu)}>{menu ? 'Fechar −' : 'Menu +'}</button>
       <nav id="navigation" className={menu ? 'navigation open' : 'navigation'} aria-label="Principal">
         <a href="#massas" onClick={() => setMenu(false)}>Macarrão para yakissoba</a><a href="#pedidos" onClick={() => setMenu(false)}>Para estabelecimentos</a><a href="#sobre" onClick={() => setMenu(false)}>Sobre a Makari</a>
-        <a href={business.instagram}>Siga-nos no Instagram</a>
+        <div className="flex items-center gap-2">
+          <span>Siga-nos no Instagram</span>
+          <a className="inline-flex min-h-11 min-w-11 items-center justify-center text-makari" href={business.instagram} aria-label="Instagram da Makari">
+            <svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+        </div>
         <a className="nav-contact" href={whatsappLink('sample')}>Peça sua amostra</a>
       </nav>
     </header>
