@@ -91,7 +91,7 @@ export default function App() {
       <section id="clientes" className="clients" aria-labelledby="clientes-title">
         <img className="clients-photo" src={asset('clientes-caminhao-makari.png')} width="1600" height="1200" loading="lazy" alt="Caminhão da KarneKeijo com a marca e as embalagens do macarrão Makari na lateral" />
         <div className="clients-panel">
-          <h2 id="clientes-title" className="text-4xl sm:text-5xl">Nossos principais clientes</h2>
+          <h2 id="clientes-title" className="text-4xl sm:text-5xl">Alguns de nossos clientes</h2>
           <ul className="mt-7 grid max-w-sm list-none grid-cols-2 gap-3 p-0">
             {['KarneKeijo', 'Marítimos', ...(import.meta.env.DEV ? ['caruaru', 'seasa'] : [])].map(name => (
               <li key={name} className="border border-white/40 bg-white/10 px-3 py-4 text-center font-semibold">{name}</li>
