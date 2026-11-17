@@ -9,6 +9,7 @@ export const business = {
   hours: null as string | null,
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rua%20Catigu%C3%A1%2C%20187%2C%20Vasco%20da%20Gama%2C%20Recife%20%E2%80%93%20PE',
   messages: {
+    sample: 'Olá! Gostaria de solicitar uma amostra do macarrão para yakissoba Makari.',
     supply: 'Olá! Tenho um estabelecimento e gostaria de conhecer o macarrão para yakissoba Makari e as condições de fornecimento.',
     visit: 'Olá! Gostaria de consultar o endereço, os horários e o atendimento ao público na fábrica Makari.',
     product: 'Olá! Gostaria de saber mais sobre o macarrão para yakissoba Makari.',

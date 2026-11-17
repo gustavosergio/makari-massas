@@ -36,7 +36,8 @@ export default function App() {
       <button id="menu-toggle" className="menu-toggle" aria-expanded={menu} aria-controls="navigation" onClick={() => setMenu(!menu)}>{menu ? 'Fechar −' : 'Menu +'}</button>
       <nav id="navigation" className={menu ? 'navigation open' : 'navigation'} aria-label="Principal">
         <a href="#massas" onClick={() => setMenu(false)}>Macarrão para yakissoba</a><a href="#pedidos" onClick={() => setMenu(false)}>Para estabelecimentos</a><a href="#sobre" onClick={() => setMenu(false)}>Sobre a Makari</a>
-        <a className="nav-contact" href={whatsappLink('supply')}>Vamos conversar</a>
+        <a href={business.instagram}>Siga-nos no Instagram</a>
+        <a className="nav-contact" href={whatsappLink('sample')}>Peça sua amostra</a>
       </nav>
     </header>
     <main id="conteudo">
