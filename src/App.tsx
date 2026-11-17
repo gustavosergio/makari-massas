@@ -106,7 +106,7 @@ export default function App() {
               'KarneKeijo',
               'Marítimos',
               'Teichi Temakeria',
-              'China Arthurr',
+              'Chin Arthur',
               'Yakisoba Dikaza',
               'China Dragon',
               ...(import.meta.env.DEV ? ['caruaru', 'seasa'] : []),
