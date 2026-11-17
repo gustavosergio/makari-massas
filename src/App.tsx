@@ -9,6 +9,8 @@ function Brand() {
 export default function App() {
   const [menu, setMenu] = useState(false)
   const [playHeroVideo, setPlayHeroVideo] = useState(false)
+  const [heroVideoFailed, setHeroVideoFailed] = useState(false)
+  const [catalogVideoFailed, setCatalogVideoFailed] = useState(false)
   const photoDialog = useRef<HTMLDialogElement>(null)
   const [hoverZoom, setHoverZoom] = useState<{ src: string; x: number; y: number } | null>(null)
   const [zoomPhoto, setZoomPhoto] = useState<{ src: string; label: string } | null>(null)
@@ -57,13 +59,13 @@ export default function App() {
         <div className="hero-image">
           <figure className="hero-video">
             <div className="hero-video-frame">
-              {playHeroVideo ? (
+              {playHeroVideo && !heroVideoFailed ? (
                 <video autoPlay muted loop playsInline preload="metadata"
                   width="720" height="1280"
                   poster={asset('yakissoba-capa.jpg')}
                   src={asset('yakissoba-abertura.mp4')}
                   aria-label="Vídeo de yakissoba"
-                  onError={() => setPlayHeroVideo(false)} />
+                  onError={() => setHeroVideoFailed(true)} />
               ) : (
                 <img src={asset('yakissoba-capa.jpg')} width="720" height="1280" fetchPriority="high" alt="Yakissoba servido em um prato" />
               )}
@@ -127,7 +129,20 @@ export default function App() {
           ))}
         </ul>
         {hoverZoom && <div className="product-zoom-preview" aria-hidden="true" style={{ backgroundImage: `url(${hoverZoom.src})`, backgroundPosition: `${hoverZoom.x}% ${hoverZoom.y}%` }} />}
-        <img className="mx-auto h-auto! w-full max-w-[549px] drop-shadow-2xl" src={asset('yakissoba-makari-prato.png')} loading="lazy" width="549" height="290" alt="Yakissoba preparado com macarrão Makari, legumes e camarões" />
+        <figure className="catalog-video hero-video">
+          <div className="hero-video-frame">
+            {playHeroVideo && !catalogVideoFailed ? (
+              <video autoPlay muted loop playsInline preload="metadata" width="720" height="1280"
+                poster={asset('yakissoba-dikaza-capa.jpg')} src={asset('yakissoba-dikaza.mp4')}
+                aria-label="Vídeo de yakisoba da Yakisoba Dikaza"
+                onError={() => setCatalogVideoFailed(true)} />
+            ) : (
+              <img src={asset('yakissoba-dikaza-capa.jpg')} width="720" height="1280"
+                loading="lazy" alt="Prato de yakisoba da Yakisoba Dikaza" />
+            )}
+          </div>
+          <figcaption>Vídeo fornecido por Yakisoba Dikaza</figcaption>
+        </figure>
         </div>
       </section>
       <section id="clientes" className="clients" aria-labelledby="clientes-title">

@@ -127,7 +127,8 @@
   max-width: 100%;
   margin-left: auto;
 }
-.hero .hero-video-frame :is(img, video) {
+.hero .hero-video-frame :is(img, video),
+.catalog-video .hero-video-frame :is(img, video) {
   position: absolute;
   display: block;
   width: 127.85%;
@@ -135,6 +136,16 @@
   height: auto;
   left: -13.64%;
   top: -21.09%;
+}
+.catalog-video {
+  width: min(100%, 300px);
+  height: auto;
+  margin-inline: auto;
+}
+.catalog-video .hero-video-frame {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 @media (max-width: 760px) {
   .hero:has(.hero-image) { min-height: 0; }
