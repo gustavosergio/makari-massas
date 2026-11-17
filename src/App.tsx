@@ -65,7 +65,7 @@ export default function App() {
         <i className="ribbon-logo" aria-hidden="true" />
         <span>Especialistas em yakissoba</span>
         <i className="ribbon-logo" aria-hidden="true" />
-        <span>Entregamos para empresas</span>
+        <span>Entregamos para estabelecimentos</span>
       </div>
       <section id="massas" className="section-space catalog" aria-labelledby="massas-title">
         <h2 id="massas-title" className="mb-8 border-b border-white/25 pb-5 text-4xl sm:text-5xl">Macarrão para yakissoba</h2>
