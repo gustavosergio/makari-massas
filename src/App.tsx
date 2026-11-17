@@ -129,7 +129,7 @@ export default function App() {
         </div>
         <div id="pedidos" className="where reveal">
           <h2>Pedidos e entregas</h2>
-          <p>Fornecemos macarrão para yakissoba em embalagens de 500 g e 1 kg, com entregas para estabelecimentos em toda a Região Metropolitana do Recife e em Caruaru.</p>
+          <p>Fornecemos macarrão para yakissoba em embalagens de 500 g e 1 kg e em lotes de 5 kg, com entregas para estabelecimentos em toda a Região Metropolitana do Recife e em Caruaru.</p>
           <p>Informe sua cidade e a quantidade desejada pelo WhatsApp para consultar preços e prazos de entrega.</p>
           <a className="button button-red" href={whatsappLink('supply')}>Solicitar cotação pelo WhatsApp</a>
         </div>
