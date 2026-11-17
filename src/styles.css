@@ -1,5 +1,27 @@
 @import "tailwindcss";
 @theme { --color-makari: #b82025; --color-cream: #f7f2e8; }
+.footer-transition {
+  position: relative;
+  height: clamp(96px, 19vh, 200px);
+  background: linear-gradient(to bottom, var(--cream), #b2a79a 36%, #61564d 70%, #24221e);
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .footer-transition::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, var(--cream), #71665b 35%, #332b27 72%, #24221e);
+      animation: footer-darken linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 50%;
+    }
+    @keyframes footer-darken {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  }
+}
 .makari-symbol {
   display: inline-block;
   width: 24px;
